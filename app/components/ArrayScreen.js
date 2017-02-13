@@ -56,7 +56,9 @@ class ArrayScreen extends Component{
 			uniqueInput: 'Apples',
 			permutationStr: '',
 			permutationInput1: 'Cats',
-			permutationInput2: 'Cat'
+			permutationInput2: 'Cat',
+			whitespaceStr: '',
+			whitespaceInput: 'I Like Cereal. '
 		};
 	}
 
@@ -69,6 +71,9 @@ class ArrayScreen extends Component{
 	}
 	onPermutation2Changed(event){
 		this.setState({permutationInput2: event.nativeEvent.text});
+	}
+	onWhitespaceInputChanged(event){
+		this.setState({whitespaceInput: event.nativeEvent.text});
 	}
 
 	runner(repitiions,func,value){
@@ -148,8 +153,19 @@ class ArrayScreen extends Component{
 	}
 
 	replaceWhitespace(){
-		var str = "Hi World I Like Cheese. ";
+		var array = this.state.whitespaceInput.split('');
 		var regex = /\s/;
+		var retstr = "";
+
+		for(var i=0;i<array.length;++i){
+			if(array[i].match(regex)){
+				array[i] = "%20";
+			}
+		}
+		retstr = array.join('');
+		this.setState({whitespaceStr: retstr});
+		//console.log(retstr);
+		return retstr;
 	}
 
 	render(){
@@ -200,6 +216,27 @@ class ArrayScreen extends Component{
 					</View>
 						<Text style={styles.text}>
 							{this.state.permutationStr}
+						</Text>
+				</View>
+				<View style={styles.container}>
+					<Text style={styles.text}>
+						Whitespace change!
+					</Text>
+					<View style={styles.flowRight}>
+						<TextInput 
+							style={styles.textInput}
+							value={this.state.whitespaceInput}
+							onChange={this.onWhitespaceInputChanged.bind(this)}
+							placeholder="Enter a permutation source"/>
+						<TouchableHighlight
+							style ={styles.button}
+							underlayColor= 'red'
+							onPress={this.replaceWhitespace.bind(this)}>
+							<Text style={styles.text}> GO! </Text>
+					</TouchableHighlight>
+					</View>
+						<Text style={styles.text}>
+							{this.state.whitespaceStr}
 						</Text>
 				</View>
 			</View>
