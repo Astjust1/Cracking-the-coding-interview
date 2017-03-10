@@ -5,6 +5,19 @@ import React , { Component} from 'react';
 import {View ,Text, StyleSheet, ScrollView, TouchableHighlight} from 'react-native';
 
 var ArrayScreen = require('./ArrayScreen');
+var LinkedListScreen = require('./LinkedListScreen');
+var StacksScreen = require('./StacksScreen');
+var TreesScreen = require('./TreesScreen');
+var BitScreen = require('./BitScreen');
+var MathScreen = require('./MathScreen');
+var ObjectOrientScreen = require('./ObjectOrientScreen');
+var RecursionScreen = require('./RecursionScreen');
+var SystemScreen = require('./SystemScreen');
+var TestingScreen = require('./TestingScreen');
+var DatabaseScreen = require('./DatabaseScreen');
+var ThreadScreen = require('./ThreadScreen');
+var ModerateScreen = require('./ModerateScreen');
+var HardScreen = require('./HardScreen');
 
 var styles = StyleSheet.create({
 	container: {
@@ -45,7 +58,22 @@ var chapterDict = [
 			];
 
 var chapterComponents = [
-{id:"ArrayScreen",title:"Arrays",component:ArrayScreen}
+
+{id:"ArrayScreen",title:"Arrays",component:ArrayScreen},
+{id:"LinkedListScreen",title:"Linked Lists",component:LinkedListScreen},
+{id:"StacksScreen",title:"Stacks and Queues",component:StacksScreen},
+{id:"TreesScreen",title:"Trees and Graphs",component:TreesScreen},
+{id:"BitScreen",title:"Bit Manipulation",component:BitScreen},
+{id:"MathScreen",title:"Math and Logic",component:MathScreen},
+{id:"ObjectOrientScreen",title:"Object Oriented Design",component:ObjectOrientScreen},
+{id:"RecursionScreen",title:"Recursion and Dynamic Programming",component:RecursionScreen},
+{id:"SystemScreen",title:"System Design and Scalability",component:SystemScreen},
+{id:"TestingScreen",title:"Testing",component:TestingScreen},
+{id:"DatabaseScreen",title:"Databases",component:DatabaseScreen},
+{id:"ThreadScreen",title:"Threads and Locks",component:ThreadScreen},
+{id:"ModerateScreen",title:"Moderate",component:ModerateScreen},
+{id:"HardScreen",title:"Hard",component:HardScreen}
+
 
 ];
 

@@ -131,7 +131,7 @@ class ArrayScreen extends Component{
 		var yesMsg = "Yes! " + str2 + " is a permutation of " + str1;
 
 		//Assuming string 1 is the source string
-		if(str2.length > str1.length){
+		if(str2.length !== str1.length){
 			//console.log("Not a permutation"+ str1 + " " + str2);
 			this.setState({permutationStr: noMsg});
 			return false;
@@ -166,6 +166,40 @@ class ArrayScreen extends Component{
 		this.setState({whitespaceStr: retstr});
 		//console.log(retstr);
 		return retstr;
+	}
+	palondromePerm(){
+		var str = "Racecar";
+		var arr = [];
+
+		//Lets use the fisher yates shuffle
+		/*
+			So this is the wrong approach,
+			I was going to just randomize the string
+			and check every randomization to see if it is a palindrome
+
+			But the better choice is to check to see
+
+		 */
+		for(vari=0; i < str.length; ++i){
+			var j = Math.floor(Math.random() * i+1);
+			if(j !== i){
+				var temp1 = a[i];
+				var temp2 = a[j];
+				a[i] = a[j];
+			}
+			arr[j] = str[i];
+
+		}
+		
+	}
+
+	rotateMatrix(){
+		// SO we have an NXN matrix and each pixel is 4 bytes(an int I believe) or a float(probably more likely given 
+		// that we are representing an image)
+		// And we need to rotate the matrix 90 degrees
+		// 
+		// Without doing it in place, work by iterating through each column
+		// and set the column to the row of the new array
 	}
 
 	render(){
